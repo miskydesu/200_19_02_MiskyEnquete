@@ -1,0 +1,29 @@
+<?php
+//ログインしていないユーザーはlogout画面へ飛ばす(logout側の処理でセッション破棄させた上でloginへ遷移する)
+if(!$_SESSION["USER_NM"]){
+	header("Location: ../logout/");
+}else{
+  $USER_ID = $_SESSION["USER_ID"];
+  $USER_NM = $_SESSION["USER_NM"];
+  $AUTH_CODE = $_SESSION["AUTH_CODE"];
+  $AUTH_NM = $_SESSION["AUTH_NM"];
+  $CREATE_APPLICATION = $_SESSION["CREATE_APPLICATION"];
+  $APPLICATION_APPROVAL = $_SESSION["APPLICATION_APPROVAL"];
+  $PDF_ACQUISITION = $_SESSION["PDF_ACQUISITION"];
+  $PERUSAL = $_SESSION["PERUSAL"];
+  $EXCEL_ACQUISITION = $_SESSION["EXCEL_ACQUISITION"];
+  $ADMINISTER_MENU = $_SESSION["ADMINISTER_MENU"];
+  $USER_ADMIN = $_SESSION["USER_ADMIN"];
+  $PRODUCT_ADMIN = $_SESSION["PRODUCT_ADMIN"];
+  $CREATE_USER_ID = $_SESSION["CREATE_USER_ID"];
+  $CREATE_DATE = $_SESSION["CREATE_DATE"];
+  $UPDATE_USER_ID = $_SESSION["UPDATE_USER_ID"];
+  $UPDATE_DATE = $_SESSION["UPDATE_DATE"];
+}
+
+//メッセージがあったときはここで受け取る
+$display_mes = "";
+if($result_mes){
+	$display_mes = $result_mes;
+}
+?>
